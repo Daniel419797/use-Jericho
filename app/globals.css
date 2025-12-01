@@ -45,6 +45,20 @@
     @apply inline-flex items-center gap-2 border-2 border-[--secondary-color] text-[--secondary-color] font-semibold px-6 py-3 rounded-xl hover:bg-[--secondary-color] hover:text-white transition-all;
   }
 }
+.slow-pulse {
+  animation: slowPulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes slowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
 
 /* Dark mode overrides */
 @media (prefers-color-scheme: dark) {

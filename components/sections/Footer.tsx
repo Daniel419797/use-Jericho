@@ -1,14 +1,14 @@
 // components/Footer.tsx
 import React from 'react';
 import Link from 'next/link';
-import { Twitter, Github, MessageCircle, Globe, Zap, Shield, ArrowRight } from 'lucide-react';
+import { Twitter, Github, MessageCircle, Globe, Zap, Shield, ArrowRight, } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="w-full bg-gradient-to-b from-gray-900 via-black to-gray-900 border-t border-gray-800">
-      <div className="container mx-auto px-[4rem] py-16">
+      <div className="container mx-auto px-[1rem] lg:px-[4rem] py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="space-y-6">
