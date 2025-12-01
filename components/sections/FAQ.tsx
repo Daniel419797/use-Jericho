@@ -110,16 +110,23 @@ export default function FAQ() {
           </a>
         </div>
 
-        {/* Sticky Mobile CTA */}
-        <div className="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[90vw] max-w-md">
+        {/* Floating WhatsApp Button – Mobile Only */}
+        <div className="lg:hidden fixed bottom-6 left-6 z-50">
           <a
             href={WA_LINK}
-            className="flex items-center justify-center gap-3 bg-orange-200 hover:bg-orange-500 text-white font-bold text-lg py-5 px-8 rounded-full shadow-2xl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex h-16 w-16 items-center justify-center rounded-full bg-orange-400 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-orange-600 hover:shadow-orange-500/50"
+            aria-label="Chat with Jericho on WhatsApp"
           >
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            {/* WhatsApp Icon */}
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" className="drop-shadow-md">
               <path d="M20.5 3.5a11.9 11.9 0 0 0-16.9 0 11.9 11.9 0 0 0 0 16.9L3 21l.6-3.6A11.9 11.9 0 1 0 20.5 3.5z" />
+              <path fill="#fff" d="M9.4 14.6c.3.3.7.4 1.1.4.4 0 .8-.1 1.1-.4l3.3-3.3c.6-.6.6-1.6 0-2.2l-1.1-1.1c-.6-.6-1.6-.6-2.2 0l-.8.8c-.3.3-.8.3-1.1 0l-2.2-2.2c-.6-.6-.6-1.6 0-2.2l1.1-1.1c.6-.6 1.6-.6 2.2 0l.8.8c.3.3.8.3 1.1 0l3.3-3.3c.6-.6.6-1.6 0-2.2l-1.1-1.1c-.6-.6-1.6-.6-2.2 0l-3.3 3.3c-.6.6-.6 1.6 0 2.2l1.1 1.1c.3.3.3.8 0 1.1l-.8.8c-.3.3-.3.8 0 1.1l2.2 2.2z" />
             </svg>
-            Start Using Jericho Now
+
+            {/* Slow Pulse Ring */}
+            <span className="slow-pulse absolute inset-0 rounded-full bg-orange-300"></span>
           </a>
         </div>
       </div>
