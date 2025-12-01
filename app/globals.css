@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --secondary-color: #ff5e00;   /* Main orange accent */
+  --primary-color: #10b981;     /* Emerald primary */
+}
+
+@theme inline {
+  /* Your existing colors & fonts */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Official Orange Palette (now accessible as orange-500, etc.) */
+  --color-orange-500: #ff6200;
+  --color-orange-600: #ff5e00;   /* Main accent – perfect pop */
+  --color-orange-700: #e55100;
+  --color-orange-400: #ff8140;
+  --color-orange-300: #ffa580;
+
+  /* Easy-to-use aliases (reference these in utilities like bg-primary) */
+  --color-primary: #10b981;      /* Emerald/green primary */
+  --color-secondary: #ff5e00;    /* Your new orange */
+  --color-accent: #ff5e00;
+}
+
+/* Custom components (like your badge) – define outside media queries */
+@layer components {
+  .hero-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm font-semibold text-[var(--primary-color)] shadow-md mb-6;
+  }
+  .hero-badge1 {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm font-semibold text-[var(--primary-color)] shadow-md mb-6;
+  }
+
+  /* Optional: Orange-themed button styles */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-[--secondary-color] text-white font-semibold px-6 py-3 rounded-xl hover:brightness-105 transition-all shadow-lg;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-[--secondary-color] text-[--secondary-color] font-semibold px-6 py-3 rounded-xl hover:bg-[--secondary-color] hover:text-white transition-all;
+  }
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --secondary-color: #fddcc1;   /* Softer orange for dark mode */
+    --primary-color: #f8640e;     /* Brighter primary for dark mode */
+  }
+}
+
+/* Base body styles */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
