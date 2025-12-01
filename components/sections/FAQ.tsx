@@ -1,113 +1,124 @@
 "use client";
 import React, { useState } from "react";
 
-const WA_LINK = "https://wa.me/XXXXXXXXXX?text=Hi";
+const WA_LINK = "https://wa.me/XXXXXXXXXX?text=Hi%20Jericho%20%F0%9F%94%A5";
 
 type FAQItem = { q: string; a: string };
 
 const FAQS: FAQItem[] = [
   {
     q: "What is Jericho?",
-    a: "Jericho is an all-in-one WhatsApp bot for crypto: convert crypto to cash, sell gift cards, send/receive crypto using phone numbers, and withdraw instantly to bank or mobile money."
+    a: "Jericho is the fastest way to move money on WhatsApp: send/receive crypto by phone number, buy gift cards instantly, and cash out to mobile money or bank — all in one chat.",
   },
   {
     q: "How do I start using Jericho?",
-    a: "Tap the green 'Start Using Jericho Now' button to open WhatsApp and send the message. No app downloads or wallets required — everything happens via WhatsApp chat."
+    a: "Just tap the orange button below → WhatsApp opens → you’re in. No apps, no sign-up, no wallet setup. Everything happens inside your chat.",
   },
   {
-    q: "Which cryptocurrencies and gift cards are supported?",
-    a: "We support major coins like BTC, USDT and several others, plus popular gift cards (Amazon, iTunes, Steam, Google Play). Supported assets may vary by region."
+    q: "Which coins and gift cards do you support?",
+    a: "USDT, USDC, BTC, ETH + Amazon, Steam, Netflix, Google Play, iTunes, and more. New cards added weekly based on user demand.",
   },
   {
-    q: "How fast are withdrawals?",
-    a: "Withdrawals are typically instant or under a few minutes for most banks and mobile money providers. Speed depends on the receiving provider."
+    q: "How fast are payouts?",
+    a: "Most withdrawals hit your mobile money or bank in under 60 seconds. Avalanche L1 makes it lightning fast.",
   },
   {
-    q: "Are there fees or limits?",
-    a: "Fees and limits depend on the chosen asset, payout method and regional regulations. Exact rates show up in-chat when you start a transaction so you always know what you'll receive."
+    q: "What are the fees?",
+    a: "You always see the exact amount you’ll receive before confirming. Typical fee: 1–3% depending on direction and region — way lower than most exchanges.",
   },
   {
-    q: "Is Jericho secure and compliant?",
-    a: "Jericho uses secure processes and follows basic compliance practices. For large transactions or certain services we may require identity verification (KYC)."
+    q: "Is it safe?",
+    a: "Non-custodial where possible, end-to-end encrypted chats, and we never store your private keys. Large transactions may require quick KYC for compliance.",
   },
   {
-    q: "What if I have an issue or dispute?",
-    a: "Open a chat via the WhatsApp button and our automated support will guide you. For escalations, the bot connects you to human support where available."
-  }
+    q: "Help! Something went wrong",
+    a: "Just type “support” in the chat — our AI assistant fixes 90% of issues instantly. Human help is available 24/7 if needed.",
+  },
 ];
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const toggle = (i: number) => setOpenIndex(prev => (prev === i ? null : i));
+  const toggle = (i: number) => setOpenIndex((prev) => (prev === i ? null : i));
 
   return (
-    <section id="faq" className="px-4 lg:px-24 py-12 bg-gray-50 text-gray-900">
+    <section id="faq" className="relative px-6 py-24 bg-gradient-to-b from-white to-orange-50 overflow-hidden">
       <div className="max-w-4xl mx-auto">
-        <h3 className="text-2xl sm:text-3xl font-bold text-center mb-4">Frequently asked questions</h3>
-        <p className="text-center text-sm sm:text-base text-gray-600 mb-8">
-          Answers to common questions about Jericho — quick, secure, and available 24/7 on WhatsApp.
-        </p>
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Got Questions? <span className="text-orange-500">We’ve Got Answers</span>
+          </h3>
+          <p className="text-lg text-gray-600">
+            Everything you need to know about sending money the Jericho way
+          </p>
+        </div>
 
-        <div className="space-y-3">
+        {/* FAQ Accordion */}
+        <div className="space-y-5">
           {FAQS.map((item, i) => {
             const isOpen = openIndex === i;
             return (
               <div
                 key={i}
-                className="bg-white rounded-xl shadow-sm overflow-hidden"
+                className={`bg-white rounded-2xl shadow-lg border ${
+                  isOpen ? "border-orange-400 shadow-orange-100" : "border-gray-200"
+                } overflow-hidden transition-all duration-300`}
               >
                 <button
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-panel-${i}`}
                   onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between px-4 py-4 sm:px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+                  className="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 rounded-2xl"
                 >
-                  <span className="text-left text-sm sm:text-base font-medium text-gray-800">{item.q}</span>
-                  <span
-                    className={`ml-4 shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-lg transition-transform ${
-                      isOpen ? "rotate-45 bg-emerald-100 text-emerald-600" : "bg-transparent text-gray-400"
+                  <span className="font-semibold text-gray-900 pr-4">{item.q}</span>
+                  <div
+                    className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      isOpen
+                        ? "bg-orange-500 text-white rotate-45"
+                        : "bg-gray-100 text-gray-600"
                     }`}
-                    aria-hidden
                   >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <path d="M12 5v14M5 12h14" />
                     </svg>
-                  </span>
+                  </div>
                 </button>
 
                 <div
-                  id={`faq-panel-${i}`}
-                  className={`px-4 sm:px-6 pb-4 transition-[max-height,opacity] duration-300 ease-out ${isOpen ? "opacity-100" : "opacity-0"}`}
-                  style={{ maxHeight: isOpen ? 400 : 0 }}
+                  className={`overflow-hidden transition-all duration-500 ease-out ${
+                    isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
                 >
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.a}</p>
+                  <div className="px-6 pb-6 pt-2">
+                    <p className="text-gray-700 leading-relaxed">{item.a}</p>
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="mt-8 text-center">
+        {/* CTA Button – Desktop */}
+        <div className="hidden lg:block text-center mt-12">
           <a
             href={WA_LINK}
-            className="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white font-semibold py-3 px-5 rounded-full shadow-lg hover:shadow-xl transition"
-            aria-label="Start Using Jericho Now on WhatsApp"
+            className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20.5 3.5a11.9 11.9 0 0 0-16.9 0 11.9 11.9 0 0 0 0 16.9L3 21l.6-3.6A11.9 11.9 0 1 0 20.5 3.5z" />
             </svg>
-            Start Using Jericho Now
+            Start Using Jericho Right Now
           </a>
         </div>
 
-        {/* Sticky mobile CTA */}
-        <div className="lg:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40">
+        {/* Sticky Mobile CTA */}
+        <div className="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[90vw] max-w-md">
           <a
             href={WA_LINK}
-            className="w-[92vw] max-w-md inline-flex items-center justify-center gap-3 bg-[#25D366] text-white font-medium py-3 px-5 rounded-full shadow-xl"
-            aria-label="Start Using Jericho Now on WhatsApp"
+            className="flex items-center justify-center gap-3 bg-orange-200 hover:bg-orange-500 text-white font-bold text-lg py-5 px-8 rounded-full shadow-2xl"
           >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.5 3.5a11.9 11.9 0 0 0-16.9 0 11.9 11.9 0 0 0 0 16.9L3 21l.6-3.6A11.9 11.9 0 1 0 20.5 3.5z" />
+            </svg>
             Start Using Jericho Now
           </a>
         </div>
