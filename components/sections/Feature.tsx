@@ -18,7 +18,7 @@ interface PriorityItem {
   description: string;
   image: string;
   color: string;
-  icon: any;
+  icon: React.ReactNode;
 }
 
 const priorities: PriorityItem[] = [
@@ -144,7 +144,8 @@ export default function Priorities() {
         ticking = true;
       }
     };
-    handleScroll();
+    // defer the initial sync call to avoid cascading renders / setState inside effect
+    requestAnimationFrame(() => handleScroll());
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [handleScroll]);
