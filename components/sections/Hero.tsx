@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import Button from '../ui/button';
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 // move variants to top-level (exports allowed here)
@@ -19,6 +20,21 @@ export const pop = {
 };
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 1024;
+  });
+
+  // 2. Effect ONLY subscribes to external system (window resize)
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <section className="pt-7 lg:pt-16 px-[1rem] lg:px-[4rem] h-full lg:h-dvh bg-white text-gray-900 items-center overflow-hidden" data-name="hero" data-file="components/Hero.js">
       <div className="block justify-center lg:mx-auto text-gray-900">
@@ -79,13 +95,13 @@ const Hero = () => {
 
             <motion.div
               variants={slideRight}
-              initial="hidden"
+              initial={isMobile ? "visible" : "hidden"}
               whileInView="visible"
               viewport={{ once: false, amount: 0.25 }}
               className="relative floating-animation"
             >
               <Image
-                src="https://image.similarpng.com/file/similarpng/original-picture/2022/02/Hand-holding-smartphone-with-whatsapp-app-in-screen-on-transparent-background-PNG.png"
+                src="/smart.png"
                 alt="Jericho WhatsApp Bot"
                 width={720}
                 height={720}
@@ -94,6 +110,7 @@ const Hero = () => {
                 priority
               />
             </motion.div>
+
 
             <motion.div
               variants={{ hidden: { x: 100, y: -50, opacity: 0 }, visible: { x: 0, y: 0, opacity: 1, transition: { duration: 0.8, delay: 0.8, ease: [0.34, 1.56, 0.64, 1] } } }}
