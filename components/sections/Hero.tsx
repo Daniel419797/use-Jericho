@@ -23,7 +23,7 @@ const Hero = () => {
     <section className="pt-7 lg:pt-16 px-[1rem] lg:px-[4rem] h-full lg:h-dvh bg-white text-gray-900 items-center overflow-hidden" data-name="hero" data-file="components/Hero.js">
       <div className="block justify-center lg:mx-auto text-gray-900">
         <div className="mx-auto flex justify-center items-center mb-6">
-          <div className="mx-auto inline-flex items-center gap-2 px-3 py-2 bg-[#fddcc1] text-emerald-800 rounded-full text-sm mb-6 w-fit max-w-[20rem]">
+          <div className="mx-auto inline-flex items-center gap-2 px-3 py-2 bg-[#fddcc1] text-orange-500 rounded-full text-sm mb-6 w-fit max-w-[20rem]">
             <div className="icon-sparkles text-lg" />
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />

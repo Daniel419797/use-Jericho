@@ -16,7 +16,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { y: 40, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 const testimonials = [
@@ -119,7 +119,7 @@ const Testimonials = () => {
               </div>
 
               {/* Quote */}
-              <p className="text-gray-700 leading-relaxed italic">"{t.feedback}"</p>
+              <p className="text-gray-700 leading-relaxed italic">&ldquo;{t.feedback}&rdquo;</p>
             </motion.div>
           ))}
         </motion.div>
