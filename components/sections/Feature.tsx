@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 // import SectionHeader from "../Molecules/SectionHeader";
 import { usePathname } from "next/navigation";
 import {
@@ -166,8 +167,14 @@ export default function Priorities() {
         <h2 className="text-4xl text-gray-900 pt-[4rem] font-bold mb-8">All you need in one place</h2>
       </header>
       <section className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8 lg:gap-16 relative w-full max-w-7xl">
-`       {/* Left Circular Image */}
-        <div className="w-full md:top-0 lg:w-auto hidden lg:flex justify-center relative lg:sticky lg:top-[19%] z-10">
+        {/* Left Circular Image */}
+        <motion.div
+          initial={{ x: -220, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full md:top-0 lg:w-auto hidden lg:flex justify-center relative lg:sticky lg:top-[19%] z-10"
+        >
           <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[70vh] lg:h-[70vh] rounded-full overflow-hidden shadow-2xl ring-4 ring-white/50">
             {priorities.map((item, index) => (
               <Image
@@ -186,7 +193,7 @@ export default function Priorities() {
             ))}
             <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent pointer-events-none" />
           </div>
-        </div>
+        </motion.div>
         {/* Center Progress Line */}
         <div className="relative justify-center min-h-full flex-shrink-0 hidden lg:flex">
           <div className="w-2 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 absolute rounded-full h-full" />
