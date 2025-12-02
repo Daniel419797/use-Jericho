@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const WA_LINK = "https://wa.me/XXXXXXXXXX?text=Hi%20Jericho%20%F0%9F%94%A5";
 
@@ -47,7 +48,7 @@ export default function FAQ() {
         {/* Heading */}
         <div className="text-center mb-16">
           <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Got Questions? <span className="text-orange-500">We’ve Got Answers</span>
+            Got Questions? <span className="text-orange-400">We’ve Got Answers</span>
           </h3>
           <p className="text-lg text-gray-600">
             Everything you need to know about sending money the Jericho way
@@ -58,41 +59,47 @@ export default function FAQ() {
         <div className="space-y-5">
           {FAQS.map((item, i) => {
             const isOpen = openIndex === i;
+            const fromLeft = i % 2 === 0;
             return (
-              <div
+              <motion.div
                 key={i}
-                className={`bg-white rounded-2xl shadow-lg border ${
-                  isOpen ? "border-orange-400 shadow-orange-100" : "border-gray-200"
-                } overflow-hidden transition-all duration-300`}
+                initial={{ x: fromLeft ? -80 : 80, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
-                <button
-                  onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 rounded-2xl"
+                <div
+                  className={`bg-white rounded-2xl shadow-lg border ${
+                    isOpen ? "border-orange-400 shadow-orange-100" : "border-gray-200"
+                  } overflow-hidden transition-all duration-300`}
                 >
-                  <span className="font-semibold text-gray-900 pr-4">{item.q}</span>
+                  <button
+                    onClick={() => toggle(i)}
+                    className="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 rounded-2xl"
+                  >
+                    <span className="font-semibold text-gray-900 pr-4">{item.q}</span>
+                    <div
+                      className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                        isOpen ? "bg-orange-300 text-white rotate-45" : "bg-gray-100 text-gray-600"
+                      }`}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                        <path d="M12 5v14M5 12h14" />
+                      </svg>
+                    </div>
+                  </button>
+
                   <div
-                    className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      isOpen
-                        ? "bg-orange-500 text-white rotate-45"
-                        : "bg-gray-100 text-gray-600"
+                    className={`overflow-hidden transition-all duration-500 ease-out ${
+                      isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
-                  </div>
-                </button>
-
-                <div
-                  className={`overflow-hidden transition-all duration-500 ease-out ${
-                    isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="px-6 pb-6 pt-2">
-                    <p className="text-gray-700 leading-relaxed">{item.a}</p>
+                    <div className="px-6 pb-6 pt-2">
+                      <p className="text-gray-700 leading-relaxed">{item.a}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -101,7 +108,7 @@ export default function FAQ() {
         <div className="hidden lg:block text-center mt-12">
           <a
             href={WA_LINK}
-            className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-orange-300 hover:bg-orange-400 text-white font-bold text-lg py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
           >
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20.5 3.5a11.9 11.9 0 0 0-16.9 0 11.9 11.9 0 0 0 0 16.9L3 21l.6-3.6A11.9 11.9 0 1 0 20.5 3.5z" />

@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-orange-300 to-orange-400 flex items-center justify-center shadow-lg shadow-orange-500/20">
                 <Zap className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-3xl font-black text-white">Jericho</h3>
@@ -21,24 +21,24 @@ const Footer = () => {
             <p className="text-gray-300 max-w-xs leading-relaxed">
               Send crypto, buy gift cards, and cash out to mobile money — all inside WhatsApp.
               <br />
-              <span className="font-bold text-orange-500">Powered by Avalanche L1 + x402</span>
+              <span className="font-bold text-orange-400">Powered by Avalanche L1 + x402</span>
             </p>
 
             {/* Social Icons */}
             <div className="flex space-x-4">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                 className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm hover:bg-orange-500 transition-all duration-300 flex items-center justify-center group border border-white/20">
+                 className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm hover:bg-orange-400 transition-all duration-300 flex items-center justify-center group border border-white/20">
                 <Twitter className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
               </a>
               <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                 className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm hover:bg-orange-500 transition-all duration-300 flex items-center justify-center group border border-white/20">
+                 className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm hover:bg-orange-400 transition-all duration-300 flex items-center justify-center group border border-white/20">
                 <Github className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
               </a>
               <a href="https://t.me" target="_blank" rel="noopener noreferrer"
-                 className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm hover:bg-orange-500 transition-all duration-300 flex items-center justify-center group border border-white/20">
+                 className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm hover:bg-orange-400 transition-all duration-300 flex items-center justify-center group border border-white/20">
                 <MessageCircle className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
               </a>
-              <Link href="/" className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm hover:bg-orange-500 transition-all duration-300 flex items-center justify-center group border border-white/20">
+              <Link href="/" className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm hover:bg-orange-400 transition-all duration-300 flex items-center justify-center group border border-white/20">
                 <Globe className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
               </Link>
             </div>
@@ -66,7 +66,7 @@ const Footer = () => {
               {['About', 'Blog', 'Careers', 'Press Kit'].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors flex items-center group font-medium">
-                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {item}
                   </a>
                 </li>
@@ -77,7 +77,7 @@ const Footer = () => {
           {/* Legal & Security */}
           <div>
             <h4 className="text-lg font-bold text-white mb-5 flex items-center">
-              <Shield className="w-5 h-5 mr-2 text-orange-500" />
+              <Shield className="w-5 h-5 mr-2 text-orange-400" />
               Legal & Security
             </h4>
             <ul className="space-y-3">
@@ -93,7 +93,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-sm">
           <p className="text-gray-400">© {currentYear} Jericho Technologies Ltd. All rights reserved.</p>
           <div className="flex items-center space-x-8 mt-4 md:mt-0">
-            <span className="flex items-center font-bold text-orange-500">
+            <span className="flex items-center font-bold text-orange-400">
               <Zap className="w-4 h-4 mr-1" />
               Powered by Avalanche L1
             </span>

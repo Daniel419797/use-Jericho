@@ -2,6 +2,22 @@
 import React from 'react';
 import { Star, Quote, Check } from 'lucide-react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+// slide-from-bottom variants
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 40, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
 
 const testimonials = [
   {
@@ -51,12 +67,19 @@ const Testimonials = () => {
           <p className="text-xl text-gray-600">Real people. Real money. Real fast.</p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Cards Grid (animated) */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
           {testimonials.map((t, i) => (
-            <div
+            <motion.div
               key={i}
-              className="group relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-orange-400 transition-all duration-400 hover:-translate-y-3"
+              variants={itemVariants}
+              className="group relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-orange-400 transition-all duration-300 hover:-translate-y-3"
             >
               <Quote className="absolute top-6 right-6 w-10 h-10 text-orange-100" />
 
@@ -97,9 +120,9 @@ const Testimonials = () => {
 
               {/* Quote */}
               <p className="text-gray-700 leading-relaxed italic">"{t.feedback}"</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Trust Bar */}
         <div className="text-center mt-16">
