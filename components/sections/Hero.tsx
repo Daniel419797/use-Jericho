@@ -5,7 +5,6 @@ import Button from '../ui/button';
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// move variants to top-level (exports allowed here)
 export const slideLeft = {
   hidden: { x: -180, opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const } },
@@ -25,7 +24,6 @@ const Hero = () => {
     return window.innerWidth < 1024;
   });
 
-  // 2. Effect ONLY subscribes to external system (window resize)
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);

@@ -42,7 +42,7 @@
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 border-2 border-[--secondary-color] text-[--secondary-color] font-semibold px-6 py-3 rounded-xl hover:bg-[--secondary-color] hover:text-white transition-all;
+    @apply inline-flex items-center gap-2 border-2 border-[--secondary-color] text-[--secondary-color] font-semibold px-6 py-3 rounded-xl hover:bg-[--secondary-color] hover:text-orange-400 transition-all;
   }
 }
 .slow-pulse {
