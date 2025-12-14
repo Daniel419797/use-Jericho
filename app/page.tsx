@@ -5,6 +5,8 @@ import Priorities from '../components/sections/Feature'
 import Testimonials from '../components/sections/Testimonials'
 import Footer from '../components/sections/Footer'
 import FAQ from '@/components/sections/FAQ'
+import LoginPage from '@/components/sections/Login'
+import WaitlistSection from '@/components/sections/WaitList'
 
 const Page = () => {
   return (
@@ -13,6 +15,8 @@ const Page = () => {
       <Priorities />
       <Testimonials />
       <FAQ/>
+      <WaitlistSection/>
+      {/* <LoginPage/> */}
       {/* <Footer /> */}
     </main>
   )

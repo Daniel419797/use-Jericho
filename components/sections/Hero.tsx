@@ -34,8 +34,8 @@ const Hero = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <section className="pt-7 lg:pt-16 px-[1rem] lg:px-[4rem] h-full lg:h-dvh bg-white text-gray-900 items-center overflow-hidden" data-name="hero" data-file="components/Hero.js">
-      <div className="block justify-center lg:mx-auto text-gray-900">
+    <section className="pt-7 lg:pt-16 px-4 lg:px-16 max-h-dvh bg-white text-gray-900 items-center overflow-hidden" data-name="hero" data-file="components/Hero.js">
+      <div className="block justify-center h-full lg:mx-auto text-gray-900">
         <div className="mx-auto flex justify-center items-center mb-6">
           <div className="mx-auto inline-flex items-center gap-2 px-3 py-2 bg-[#fddcc1] text-orange-500 rounded-full text-sm mb-6 w-fit max-w-[20rem]">
             <div className="icon-sparkles text-lg" />
@@ -47,7 +47,7 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col mt-3 lg:flex-row">
-          <div className="text-center lg:text-left mb-16">
+          <div className="text-center lg:text-left lg:mb-16">
             <motion.div
               variants={slideLeft}
               initial="hidden"
@@ -55,11 +55,11 @@ const Hero = () => {
               viewport={{ once: false, amount: 0.25 }}
               className="text-center lg:text-left mb-16"
             >
-              <h1 className="text-4xl md:text-5xl lg:max-w-4xl lg:text-8xl font-bold mb-6 text-[var(--text-primary)] leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:max-w-4xl lg:text-8xl font-bold mb-6 text-[var(--text-primary)]">
                 Turn your Chats into{" "}
                 <span className="text-orange-400">Cashouts</span>
               </h1>
-              <p className="text-xl md:text-xl text-[var(--text-secondary)] mb-10 max-w-3xl leading-relaxed">
+              <p className="text-lg md:text-xl text-(--text-secondary) mb-10 max-w-3xl leading-relaxed">
                 Buy and Sell Crypto with Jericho AI Agent on WhatsApp. From crypto to cash in seconds. Just text. Its that easy
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
